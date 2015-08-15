@@ -13,7 +13,7 @@ class Vocab:
         self.end = 600
         self.numGames = 10
         self.numChoices = 5
-        self.game = 3
+        self.game = 4
 
         self.words = {}
         with open(self.wordFile) as f:
@@ -84,8 +84,10 @@ class Vocab:
             return self.game1(word)
         elif self.game == 2:
             return self.game2(word)
-        else:
+        elif self.game == 3:
             return self.game3(word)
+        else:
+            return self.game4(word)
 
     def game1(self, word):
         definitions = []
@@ -130,6 +132,12 @@ class Vocab:
         else:
             return self.game2(word)
 
+    def game4(self, word):
+        print word
+        raw_input("")
+        print self.words[word]['definition']
+
+        return 0
 
     def getUserInput(self):
         userInput = raw_input("Your answer: ")
